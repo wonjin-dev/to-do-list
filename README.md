@@ -14,3 +14,11 @@
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/148469158-5150ccf7-c857-4fa6-90ee-4d22fc4ffd6c.png">
   <img width="40" height="40" src="https://user-images.githubusercontent.com/82315118/153709482-4c2766f3-ac4e-4af5-a55b-dab205f6f885.png">
 </div>
+
+<hr>
+
+## _Schedule_
+
+***`22/02/12`***<br>
+***1. 개발환경 설정 #1***
+> \- 예상 필요 모듈 설치<br> - 타입스크립트 개발 환경 설정
