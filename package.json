@@ -1,5 +1,5 @@
 {
-  "name": "todolist",
+  "name": "1todo",
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.2",
     "@types/node": "^17.0.8",
