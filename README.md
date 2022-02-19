@@ -1,4 +1,4 @@
-# 1 To Do
+# Want To Do (1ToDo)
 
 ## _Get Started_
 
@@ -19,13 +19,39 @@
 
 ## _Schedule_
 
+***`22/02/20`***<br>
+***1. ToDoCreator 컴포넌트 개발***
+> \- PublicInput, InputForm 하위 컴포넌트 개발
+
+***2. constants STRING 생성***
+
+***3. Tag 분리 util 함수 개발***
+
+***4. ATOMIC design을 이용한 컴포넌트 설계***
+
+***5. ToDoCard 컴포넌트 개발***
+> \- ToDoDetails 하위 컴포넌트 개발
+
+***6. Filter 기능 구현***
+
+***7. 모달 컴포넌트 개발***
+
+***8. Gh-pages 빌드***
+<br>
+
+***`22/02/19`***<br>
+***1. PublicBtn 컴포넌트 개발***
+<br>
+
 ***`22/02/14`***<br>
 ***1. Tag 데이터 스키마 정의***
 > \- combine reducer를 통한 스토어 재정의
+<br>
 
 ***`22/02/13`***<br>
 ***1. 개발환경 설정 #2***
 > \- 리덕스 스토어 설정 (리듀서, 액션, 슬라이스, 퍼시스트)
+<br>
 
 ***2. To Do 데이터 스키마 정의***
 
