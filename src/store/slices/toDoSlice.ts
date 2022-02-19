@@ -2,7 +2,7 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 export interface ToDoSchema {
   id: number;
-  title: string;
+  title?: string;
   desc?: string;
   tags?: string;
   // 목표일 (DeaD-line Day)
