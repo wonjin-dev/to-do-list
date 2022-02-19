@@ -11,5 +11,6 @@ export const STRINGS = {
   deleteCompleted: '완료 항목 삭제',
   ddd: '마감 목표일: ',
   edit: '수정',
-  delete: '삭제'
+  delete: '삭제',
+  close: '닫기'
 }
