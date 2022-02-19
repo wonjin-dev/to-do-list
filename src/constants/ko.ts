@@ -1,4 +1,5 @@
 export const STRINGS = {
+  title: 'Want To Do (1TODO)',
   name: '제목',
   desc: '상세 설명',
   submit: '제출하기',
