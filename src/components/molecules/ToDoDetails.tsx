@@ -39,7 +39,7 @@ const ToDoDetails: React.FC<Props> = (props: Props) => {
         />
       </CheckboxContainer>
       <DetailsContainer>
-        <Details>{STRINGS.title}: {props.details.title}</Details>
+        <Details>{STRINGS.name}: {props.details.title}</Details>
         <Details>{STRINGS.desc}: {props.details.desc}</Details>
         <Details>{STRINGS.ddd}{props.details.ddd}</Details>
         <Details>{STRINGS.tag}: {tagList}</Details>
