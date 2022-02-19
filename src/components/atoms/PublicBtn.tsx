@@ -8,14 +8,14 @@ interface Props {
 const PublicBtn = (props: Props) => {
   return (
     <>
-      <FilterBtn onClick={props.onClickBtn}>{props.value}</FilterBtn>
+      <StyledBtn onClick={props.onClickBtn}>{props.value}</StyledBtn>
     </>
   )
 }
 
 export default PublicBtn;
 
-const FilterBtn = styled.button`
+const StyledBtn = styled.button`
   width: 100%;
   height: 25px;
   background-color: #a5d8ff;
