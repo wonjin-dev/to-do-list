@@ -7,6 +7,7 @@ import Filter from '../molecules/Filter';
 import ToDoCard from '../organisms/ToDoCard';
 import ToDoCreator from '../organisms/ToDoCreator';
 import ToDoModal from '../molecules/ToDoModal';
+
 interface Props {
   details: ToDoSchema[];
 }

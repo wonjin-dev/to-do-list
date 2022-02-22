@@ -1,6 +1,7 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import {useDispatch} from 'react-redux';
+import {STRINGS} from '../../constants/ko';
 import {addToDo} from '../../store/slices/toDoSlice';
 import InputForm from '../molecules/InputForm';
 import {tagSplit} from "../utils/tagSplitter";
@@ -43,6 +44,30 @@ const ToDoCreator: React.FC = () => {
       isCompleted: false
     });
   }
+
+  useEffect(() => {
+    if(details.title.length > 10) {
+      setDetails({
+        ...details,
+        title: details.title.slice(0,9)
+      })
+      alert(`${STRINGS.titleNeed10}`);
+    }
+  }, [details.title]);
+  
+  useEffect(() => {
+    const {title, desc, ddd, tags} = details;
+    const unexpectedExit = () => {
+      alert(`${STRINGS.confirmExit}`);
+    }
+    if(title !== '' || desc !== '' || ddd !== '' || tags !== ''){
+      window.addEventListener('beforeunload', unexpectedExit);
+    }
+
+    return () => {
+      window.removeEventListener('beforeunload', unexpectedExit);
+    }
+  }, [details]);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setDetails({
