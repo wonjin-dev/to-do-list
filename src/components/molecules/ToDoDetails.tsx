@@ -1,9 +1,10 @@
-import {useMemo} from "react";
+import {useState, useMemo} from "react";
 import styled from "styled-components";
 import {useSelector} from 'react-redux';
 import {ReduxState} from '../../store/index';
 import {ToDoSchema} from "../../store/slices/toDoSlice"
 import {STRINGS} from "../../constants/ko";
+import ConfirmModal from './modals/ConfirmModal';
 
 interface Props {
   details: ToDoSchema;
@@ -21,7 +22,11 @@ const ToDoDetails: React.FC<Props> = (props: Props) => {
       if(splited){
         for(let i=0; i<splited.length; i++) {
           if(splited[i] === tagState[index].title) {
-            return <Tags key={index} color={tags.bgColor}>{tags.title}</Tags>
+            if(tags.title.length > 4) {
+              return <Tags key={index} color={tags.bgColor}>{tags.title.slice(0,4)}...</Tags>
+            } else {
+              return <Tags key={index} color={tags.bgColor}>{tags.title}</Tags>
+            }
           }
         }
       }
@@ -29,6 +34,7 @@ const ToDoDetails: React.FC<Props> = (props: Props) => {
     })
   }, []);
 
+  const [modal, setModal] = useState(false);
   return (
     <Container>
       <CheckboxContainer>
@@ -39,15 +45,16 @@ const ToDoDetails: React.FC<Props> = (props: Props) => {
         />
       </CheckboxContainer>
       <DetailsContainer>
-        <Details>{STRINGS.name}: {props.details.title}</Details>
-        <Details>{STRINGS.desc}: {props.details.desc}</Details>
+        <Details>{STRINGS.nameColon}{props.details.title}</Details>
+        <Details>{STRINGS.descColon}{props.details.desc}</Details>
         <Details>{STRINGS.ddd}{props.details.ddd}</Details>
-        <Details>{STRINGS.tag}: {tagList}</Details>
+        {tagList.length !==0 ? <Details>{tagList}</Details> : null}
       </DetailsContainer>
       <BtnContainer>
         <StyledBtn onClick={props.onClickUpdate}>{STRINGS.edit}</StyledBtn>
-        <StyledBtn onClick={props.onClickDelete}>{STRINGS.delete}</StyledBtn>
+        <StyledBtn onClick={() => setModal(true)}>{STRINGS.delete}</StyledBtn>
       </BtnContainer>
+      {modal && <ConfirmModal index={props.details.id} onClickCancel={() => setModal(false)} />}
     </Container>
   );
 }

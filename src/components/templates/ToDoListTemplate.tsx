@@ -6,7 +6,7 @@ import {ToDoSchema, deleteToDo} from '../../store/slices/toDoSlice';
 import Filter from '../molecules/Filter';
 import ToDoCard from '../organisms/ToDoCard';
 import ToDoCreator from '../organisms/ToDoCreator';
-import ToDoModal from '../molecules/modal/ToDoModal';
+import ToDoModal from '../molecules/modals/ToDoModal';
 
 interface Props {
   details: ToDoSchema[];
@@ -106,4 +106,4 @@ const SpecialBtn = styled.button`
   color: white;
   border: none;
   border-radius: 10px;
-` 
+`

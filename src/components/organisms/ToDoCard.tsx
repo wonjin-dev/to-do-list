@@ -1,8 +1,10 @@
 import {useState, useEffect, useCallback} from 'react';
 import styled from 'styled-components';
 import {useDispatch} from 'react-redux';
+import moment from 'moment';
 import {ToDoSchema, updateToDo, deleteToDo} from '../../store/slices/toDoSlice';
 import ToDoDetails from '../molecules/ToDoDetails';
+const now = moment().format('YYYY-MM-DD');
 
 interface Props {
   details: ToDoSchema;
@@ -11,8 +13,7 @@ interface Props {
 
 const ToDoCard: React.FC<Props> = (props: Props) => {
   const dispatch = useDispatch();
-  const toDo = props.details;
-  const [complete ,setComplete] = useState(toDo.isCompleted);
+  const [complete ,setComplete] = useState(props.details.isCompleted);
 
   const deleteAction = useCallback((id: number) =>
     dispatch(deleteToDo({id})),
@@ -20,15 +21,25 @@ const ToDoCard: React.FC<Props> = (props: Props) => {
 
   const updateComplete = useCallback(
     (toDo: ToDoSchema, completes?: boolean) => {
-      dispatch(updateToDo({
-      ...toDo,
-      isCompleted: completes
-    }))},
+      if(!complete){
+        dispatch(updateToDo({
+          ...toDo,
+          ctd: now,
+          isCompleted: completes
+        }))
+      } else {
+        dispatch(updateToDo({
+          ...toDo,
+          ctd: undefined,
+          isCompleted: completes
+        }))
+      }
+    },
     [dispatch]
-  )
+  );
 
   useEffect(() => {
-    updateComplete(toDo, complete);
+    updateComplete(props.details, complete);
   }, [complete])
 
   return (
@@ -40,7 +51,7 @@ const ToDoCard: React.FC<Props> = (props: Props) => {
         completed={complete}
         details={props.details}
         onClickUpdate={props.onClickUpdate}
-        onClickDelete={() => deleteAction(toDo.id)}
+        onClickDelete={() => deleteAction(props.details.id)}
       />
     </Container>
   );

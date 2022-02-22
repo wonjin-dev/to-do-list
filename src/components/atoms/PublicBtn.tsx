@@ -18,6 +18,7 @@ export default PublicBtn;
 const StyledBtn = styled.button`
   width: 100%;
   height: 25px;
+  margin: 6px;
   background-color: #a5d8ff;
   border: none;
   border-radius: 20px;

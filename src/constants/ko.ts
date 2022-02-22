@@ -2,6 +2,8 @@ export const STRINGS = {
   title: 'Want To Do (1TODO)',
   name: '제목',
   desc: '상세 설명',
+  nameColon: '제목: ',
+  descColon: '상세 설명: ',
   submit: '제출하기',
   tag: '태그',
   tagPlaceholder: '태그 ( , 표시로 구분해주세요)',

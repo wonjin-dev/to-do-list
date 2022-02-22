@@ -23,6 +23,6 @@ export default Filter;
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 14px;
   background-color: inherit
 `
