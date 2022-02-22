@@ -1,11 +1,11 @@
 import {useState, useCallback} from 'react';
 import styled from "styled-components";
 import {useDispatch, useSelector} from 'react-redux';
-import {ReduxState} from '../../store/index';
-import {ToDoSchema, updateToDo} from '../../store/slices/toDoSlice';
-import {STRINGS} from '../../constants/ko';
-import PublicBtn from "../atoms/PublicBtn";
-import InputForm from "../molecules/InputForm";
+import {ReduxState} from '../../../store/index';
+import {ToDoSchema, updateToDo} from '../../../store/slices/toDoSlice';
+import {STRINGS} from '../../../constants/ko';
+import PublicBtn from "../../atoms/PublicBtn";
+import InputForm from "../InputForm";
 
 interface Props {
   index: number;

@@ -6,7 +6,7 @@ import {ToDoSchema, deleteToDo} from '../../store/slices/toDoSlice';
 import Filter from '../molecules/Filter';
 import ToDoCard from '../organisms/ToDoCard';
 import ToDoCreator from '../organisms/ToDoCreator';
-import ToDoModal from '../molecules/ToDoModal';
+import ToDoModal from '../molecules/modal/ToDoModal';
 
 interface Props {
   details: ToDoSchema[];
