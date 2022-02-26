@@ -9,6 +9,7 @@ import PublicInput from '../../atoms/PublicInput';
 
 interface Props {
   index: number;
+  onClickUpdate: () => void;
   onClickCancel: () => void;
 }
 
@@ -30,6 +31,11 @@ const ToDoModal = (props: Props) => {
     }
   ))}, [dispatch]);
 
+  const updateDetail = () => {
+    updateAction(modalDetails);
+    props.onClickUpdate();
+  }
+  
   return (
     <>
       <ModalWrapper>
@@ -54,9 +60,7 @@ const ToDoModal = (props: Props) => {
             onChange={onChange}
           />
           <BtnContainer>
-            <PublicBtn onClickBtn={() => {
-              updateAction(modalDetails);
-            }} value={STRINGS.edit} />
+            <PublicBtn onClickBtn={updateDetail} value={STRINGS.edit} />
             <PublicBtn onClickBtn={props.onClickCancel} value={STRINGS.close} />
           </BtnContainer>
         </Container>

@@ -34,6 +34,9 @@ const ToDoListTemplate: React.FC<Props> = (props: Props) => {
     dispatch(deleteToDo({id})),
     [dispatch]);
 
+    const onClickUpdate = useCallback(() => {
+      setModal({show:false, index:0});
+    }, []);
   return (
     <Container>
       <Content>
@@ -75,7 +78,7 @@ const ToDoListTemplate: React.FC<Props> = (props: Props) => {
           }})
         }
       </Content>
-      {modal.show && <ToDoModal index={modal.index} onClickCancel={onClickCancel}/>}
+      {modal.show && <ToDoModal index={modal.index} onClickCancel={onClickCancel} onClickUpdate={onClickUpdate}/>}
     </Container>
   );
 }
