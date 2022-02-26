@@ -74,15 +74,15 @@ const ToDoCreator: React.FC = () => {
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [details.title]);
+
+  const beforeUnload = (e: BeforeUnloadEvent) => {
+    e.returnValue = `${STRINGS.confirmExit}`;
+  }
   
   useEffect(() => {
-    const {title, desc, ddd, tags} = details
-    if(title !== '' || desc !== '' || ddd !== '' || tags !== ''){
-      window.addEventListener('beforeunload', (e) => {
-        e.returnValue = `${STRINGS.confirmExit}`;
-      });
-    }
-  }, [details]);
+    window.addEventListener('beforeunload', beforeUnload);
+    return () => window.removeEventListener('beforeunload', beforeUnload, true);
+  }, []);
 
   return (
     <Container>
