@@ -5,7 +5,7 @@ import {ReduxState} from '../../../store/index';
 import {ToDoSchema, updateToDo} from '../../../store/slices/toDoSlice';
 import {STRINGS} from '../../../constants/ko';
 import PublicBtn from "../../atoms/PublicBtn";
-import InputForm from "../InputForm";
+import PublicInput from '../../atoms/PublicInput';
 
 interface Props {
   index: number;
@@ -34,15 +34,29 @@ const ToDoModal = (props: Props) => {
     <>
       <ModalWrapper>
         <Container>
-          <InputForm
-            details={modalDetails}
+          <PublicInput
+            name="title"
+            placeholder={STRINGS.title}
+            value={modalDetails.title}
             onChange={onChange}
-            onClickAdd={() => {
-              updateAction(modalDetails);
-              alert('수정되었습니다');
-            }}
+          />
+          <PublicInput
+            name="desc"
+            placeholder={STRINGS.desc}
+            value={modalDetails.desc}
+            onChange={onChange}
+          />
+          <PublicInput
+            type='date'
+            name="ddd"
+            placeholder={STRINGS.ddd}
+            value={modalDetails.ddd}
+            onChange={onChange}
           />
           <BtnContainer>
+            <PublicBtn onClickBtn={() => {
+              updateAction(modalDetails);
+            }} value={STRINGS.edit} />
             <PublicBtn onClickBtn={props.onClickCancel} value={STRINGS.close} />
           </BtnContainer>
         </Container>
@@ -76,5 +90,6 @@ const Container = styled.div`
 `
 
 const BtnContainer = styled.div`
+  display: flex;
   margin-top: 7px;
 `

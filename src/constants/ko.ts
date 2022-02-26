@@ -1,6 +1,6 @@
 export const STRINGS = {
-  title: 'Want To Do (1TODO)',
-  name: '제목',
+  projectTitle: 'Want To Do (1TODO)',
+  title: '제목',
   desc: '상세 설명',
   nameColon: '제목: ',
   descColon: '상세 설명: ',

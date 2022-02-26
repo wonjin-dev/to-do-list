@@ -32,6 +32,7 @@ const ToDoDetails: React.FC<Props> = (props: Props) => {
       }
       return null;
     })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [modal, setModal] = useState(false);

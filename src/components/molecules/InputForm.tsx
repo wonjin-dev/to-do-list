@@ -15,7 +15,7 @@ const InputForm: React.FC<Props> = (props: Props) => {
     <Container>
       <PublicInput
         name="title"
-        placeholder={STRINGS.name}
+        placeholder={STRINGS.title}
         value={props.details.title}
         onChange={props.onChange}
       />

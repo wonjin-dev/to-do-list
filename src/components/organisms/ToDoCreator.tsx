@@ -72,6 +72,7 @@ const ToDoCreator: React.FC = () => {
       })
       alert(`${STRINGS.titleNeed10}`);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [details.title]);
   
   useEffect(() => {

@@ -35,11 +35,12 @@ const ToDoCard: React.FC<Props> = (props: Props) => {
         }))
       }
     },
-    [dispatch]
+    [complete, dispatch]
   );
 
   useEffect(() => {
     updateComplete(props.details, complete);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [complete])
 
   return (

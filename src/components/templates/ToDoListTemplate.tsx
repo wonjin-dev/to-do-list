@@ -1,3 +1,5 @@
+/* eslint-disable array-callback-return */
+/* eslint-disable no-lone-blocks */
 import {useState, useCallback} from 'react';
 import styled from 'styled-components';
 import {useDispatch} from 'react-redux';
@@ -35,7 +37,7 @@ const ToDoListTemplate: React.FC<Props> = (props: Props) => {
   return (
     <Container>
       <Content>
-        <Title>{STRINGS.title}</Title>
+        <Title>{STRINGS.projectTitle}</Title>
         <ToDoCreator />
         <Filter
           onClickAll={() => setFilterState('all')}
