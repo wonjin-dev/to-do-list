@@ -15,27 +15,33 @@ interface Props {
 }
 
 const ToDoDetails: React.FC<Props> = (props: Props) => {
+  const [modal, setModal] = useState(false);
   const tagState = useSelector((state: ReduxState) => state.tags);
-  const splited = props.details.tags?.split(',');
+  const splited =
+    props.details.tags
+      ? props.details.tags?.split(',')
+      : undefined;
+
   const tagList = useMemo(() => {
-    return tagState.map((tags, index) => {
-      if(splited){
-        for(let i=0; i<splited.length; i++) {
-          if(splited[i] === tagState[index].title) {
-            if(tags.title.length > 4) {
-              return <Tags key={index} color={tags.bgColor}>{tags.title.slice(0,4)}...</Tags>
-            } else {
-              return <Tags key={index} color={tags.bgColor}>{tags.title}</Tags>
+    // let a = '';
+    if(splited) {
+      // eslint-disable-next-line array-callback-return
+      return tagState.map((tags, index) => {
+          for(let i=0; i<splited.length; i++) {
+            if(splited[i] === tagState[index].title) {
+              if(tags.title.length > 4) {
+                return <Tags key={index} color={tags.bgColor}>{tags.title.slice(0,4)}...</Tags>
+              } else {
+                return <Tags key={index} color={tags.bgColor}>{tags.title}</Tags>
+              }
             }
           }
-        }
-      }
+        })
+    } else {
       return null;
-    })
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+    }
+  }, [splited, tagState]);
 
-  const [modal, setModal] = useState(false);
   return (
     <Container>
       <CheckboxContainer>
@@ -49,7 +55,10 @@ const ToDoDetails: React.FC<Props> = (props: Props) => {
         <Details>{STRINGS.nameColon}{props.details.title}</Details>
         <Details>{STRINGS.descColon}{props.details.desc}</Details>
         <Details>{STRINGS.ddd}{props.details.ddd}</Details>
-        {tagList.length !==0 ? <Details>{tagList}</Details> : null}
+        {tagList !== null
+          ? <Details>{tagList}</Details>
+          : null
+        }
       </DetailsContainer>
       <BtnContainer>
         <StyledBtn onClick={props.onClickUpdate}>{STRINGS.edit}</StyledBtn>
